@@ -20,12 +20,12 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'JATE'
+        title: 'jate'
       }),
 
       new InjectManifest({
         swSrc: './src-sw.js',
-        swDest:  'src-sw.js'
+        swDest:  './src-sw.js'
       }),
       new WebpackPwaManifest({
         fingerprints: "false",
@@ -41,7 +41,7 @@ module.exports = () => {
           {
             src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
-            destination: path.join('assets', 'icons'),
+            destination: path.join('src', 'icons'),
           },
         ],
       }),
