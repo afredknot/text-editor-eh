@@ -25,13 +25,14 @@ module.exports = () => {
 
       new InjectManifest({
         swSrc: './src-sw.js',
-        swDest:  './src-sw.js'
+        // include:[/\.html$/,/\.js$/,/\.css$/,/\.icon$/,/\.png$/],
+        swDest:  'src-sw.js'
       }),
       new WebpackPwaManifest({
         fingerprints: "false",
         inject: "true",
         name: 'Just Another Text Editor',
-        short_name: 'JATE',
+        short_name: 'J.A.T.E',
         description: 'You have a new Text Editor you can use offline',
         background_color: '#7eb4e2',
         theme_color: '#7eb4e2',
@@ -39,7 +40,7 @@ module.exports = () => {
         publicPath: './',
         icons: [
           {
-            src: path.resolve('src/images/logo.png'),
+            src: path.resolve('./src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('src', 'icons'),
           },
