@@ -25,7 +25,7 @@ module.exports = () => {
 
       new InjectManifest({
         swSrc: './src-sw.js',
-        // include:[/\.html$/,/\.js$/,/\.css$/,/\.icon$/,/\.png$/],
+        include:[/\.html$/,/\.js$/,/\.css$/,/\.icon$/,/\.png$/],
         swDest:  'src-sw.js'
       }),
       new WebpackPwaManifest({
@@ -37,7 +37,7 @@ module.exports = () => {
         background_color: '#7eb4e2',
         theme_color: '#7eb4e2',
         start_url: './',
-        publicPath: './',
+        publicPath: '../',
         icons: [
           {
             src: path.resolve('./src/images/logo.png'),
