@@ -1,0 +1,96 @@
+# Query: id
+# ContextLines: 1
+
+26 results - 8 files
+
+client/.eslintrc:
+  5    "rules": {
+  6:     // Override our default settings just for this directory
+  7      "eqeqeq": "warn",
+
+client/.gitignore:
+   8  # Runtime data
+   9: pids
+  10: *.pid
+  11  *.seed
+  12: *.pid.lock
+  13  
+
+client/index.html:
+   4      <meta charset="UTF-8" />
+   5:     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   6      <title>J.A.T.E</title>
+
+  21    <body>
+  22:     <nav id="navbar">
+  23        <div class="nav-btn">
+  24:         <a class="btn btn-sm btn-dark" id="buttonInstall" role="button">Install!</a>
+  25        </div>
+
+  32  
+  33:     <main id="main">
+  34        <div class="loading-container">
+
+client/package.json:
+  27      "code-mirror-themes": "^1.0.0",
+  28:     "idb": "^6.1.2"
+  29    }
+
+client/src-sw.js:
+   1  const { offlineFallback, warmStrategyCache } = require('workbox-recipes');
+   2: const { CacheFirst, StaleWhileRevalidate } = require('workbox-strategies');
+   3  const { registerRoute } = require('workbox-routing');
+
+  31    ({ request }) => ["style", "script", "worker"].includes(request.destination),
+  32:   new StaleWhileRevalidate({
+  33      cacheName: 'asset-cache',
+
+client/src/css/style.css:
+   14    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+   15:     Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+   16      sans-serif;
+
+   45    height: 30px;
+   46:   width: 30px;
+   47:   border: 3px solid var(--primary);
+   48    border-right-color: transparent;
+
+   90    border-radius: 0.3rem;
+   91:   border: 1px solid transparent;
+   92    outline: none;
+
+  117  .btn.btn-block {
+  118:   width: 100%;
+  119    display: block;
+
+  194  
+  195: @media only screen and (max-width: 600px) {
+  196    .nav-btn {
+
+client/src/js/database.js:
+   1: import { openDB } from 'idb';
+   2  
+
+   9        }
+  10:       db.createObjectStore('jate', { keyPath: 'id', autoIncrement: true });
+  11        console.log('jate database created');
+
+  15  // TODO: Add logic to a method that accepts some content and adds it to the database
+  16: export const putDb = async ( content) =>{
+  17    console.log('PUT to the database');
+
+  20    const store = tx.objectStore('jate');
+  21:   const request = store.put({ jate: content });
+  22    const result = await request;
+
+client/src/js/install.js:
+   1: const butInstall = document.getElementById('buttonInstall');
+   2  
+
+   6    window.deferredPrompt = event;
+   7:   butInstall.classList.toggle("hidden", false)
+   8  });
+
+  17    window.deferredPrompt = null;
+  18:   butInstall.classList.toggle("hidden", true);
+  19  });
